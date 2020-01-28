@@ -2,11 +2,11 @@
 
 1. Write a function, `nonsense` that takes an input `string`. This function contains another function, `blab` which alerts `string` and is immediately called inside the function `nonsense`. `blab` should look like this inside of the `nonsense` function:
 
-	```javascript
-	 var blab = function(){
-	   alert(string);
-	 };
-	 ```
+   ```javascript
+   var blab = function() {
+     alert(string);
+   };
+   ```
 
 1. In your function, `nonsense`, change the immediate call to a setTimeout so that the call to `blab` comes after 2 seconds. The `blab` function itself should stay the same as before.
 
@@ -14,19 +14,24 @@
 
 1. Inspect `blabLater` and `blabAgainLater` in your console. Call them (they are functions!) and see what happens!
 
+```js
+```
 
 1. Write a function with a closure. The first function should only take one argument, someone's first name, and the inner function should take one more argument, someone's last name. The inner function should console.log both the first name and the last name.
-	```javascript
-	var lastNameTrier = function(firstName){
-	   //does stuff
 
-	    var innerFunction = function() {
-	        //does stuff
-	    };
-	    //maybe returns something here
-	};
-	var firstNameFarmer = lastNameTrier('Farmer'); //logs nothing
-	firstNameFarmer('Brown'); //logs 'Farmer Brown'
+````js
+
+var lastNameTrier = function(firstName) {
+  // var fixedFirstName = firstName;
+  var innerFunction = function() {
+    //does stuff
+  };
+  //maybe returns something;
+};
+var firstNameFarmer = lastNameTrier("Farmer");
+firstNameFarmer("Brown"); //logs 'Farmer Brown'
+
+
 	```
 	This function is useful in case you want to try on different last names. For example, I could use firstName again with another last name:
 
@@ -47,4 +52,7 @@
 	storyOfMyLife.addWords('I ate some ice cream.'); //'My code broke. I ate some ice cream.'
 	storyOfMyLife.erase(); // ''
 
-	```
+	function storyWriter() {
+		
+	}
+````

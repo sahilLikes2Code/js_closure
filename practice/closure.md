@@ -4,6 +4,12 @@
 
 ```js
 // Your code goes here
+function multiplyBy(number) {
+  function returnsNumber(differentNumber) {
+    return differentNumber * number;
+  }
+  return returnsNumber;
+}
 
 const double = multiplyBy(2);
 const final = double(15); // final should be 30
@@ -13,9 +19,16 @@ const final = double(15); // final should be 30
 
 ```js
 // Your code goes here
+function fullName(firstName) {
+  function takesLastName(lastName) {
+    return firstName + " " + lastName;
+  }
+  return takesLastName;
+}
 
 const name = fullName("Will");
 const final = name("Smith"); // final should be "Will Smith"
+console.log(final);
 ```
 
 3. Write a function called `isInBetween` which takes two parameter `a` and `b` and returns a function. When you call the returned function with any number it returns `true` if the value is in between `a` and `b`.
@@ -23,6 +36,14 @@ const final = name("Smith"); // final should be "Will Smith"
 ```js
 function isInBetween(a, b) {
   // your code goes here
+
+  function myFunc(number) {
+    if (a < number && number < b) {
+      return true;
+    }
+    return false;
+  }
+  return myFunc;
 }
 
 const isChild = isInBetween(10, 100);
@@ -36,6 +57,10 @@ isChild(103); // false
 ```js
 function letsWishThem(greeting) {
   // your code goes here
+  function myFunc(message) {
+    return greeting + " " + message;
+  }
+  return myFunc;
 }
 
 const callWithHey = letsWishThem("Hey");
@@ -49,6 +74,12 @@ callWithHello("How Are You?"); // Hello How Are You?
 ```js
 function addGame(gameName) {
   // your code goes here
+  var score = 0;
+  function scoreIncrement() {
+    score += 1;
+    return `Score of ${gameName} is  ${score}`;
+  }
+  return scoreIncrement;
 }
 
 // Output
@@ -63,8 +94,14 @@ cricket(); // Your score of Cricket is 2
 6. Write a function called `getCard` which takes one of these options (club, spade, heart, dimond) returns a function calling that function returns random card (2,3,4,5,6,7,8,9,10,J, Q, K, A) of that suit.
 
 ```js
-function getCard(suit) {
+function addGame(suit) {
   // your code goes here
+  var cardsArray = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"]; //14 cards
+  function randomCardWithSuit() {
+    var card = cardsArray[Math.floor(Math.random() * 14)];
+    return `Card is: ${card} ${suit}`;
+  }
+  return randomCardWithSuit;
 }
 
 // Output

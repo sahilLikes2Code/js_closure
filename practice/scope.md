@@ -8,6 +8,7 @@ const lastName = "Stark";
 var knownAs = "no one";
 
 console.log(window.firstName, window.lastName, window.knownAs);
+Output: undefined undefined 'no one'
 ```
 
 2. Guess the output:
@@ -22,17 +23,21 @@ function fullName(a, b) {
 }
 
 console.log(window.fullName(firstName, lastName));
+
+Output: "AryaStark";
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-fucntion addOne(num){
+function addOne(num){
   return num + 1;
 }
 var one = addOne(0);
 var two = addOne(1);
 console.log(one, two);
+
+Output: 1 2
 ```
 
 4. Make a Execution Context Diagram for the following JS and write the output.
@@ -44,6 +49,8 @@ fucntion addOne(num){
 }
 var two = addOne(1);
 console.log(one, two);
+
+Output: 1 2
 ```
 
 5. Make a Execution Context Diagram for the following JS and write the output.
@@ -55,6 +62,8 @@ fucntion addOne(num){
 }
 var two = addOne(1);
 console.log(two);
+
+Output: 1 2
 ```
 
 6. Make a Execution Context Diagram for the following JS and write the output.
@@ -66,6 +75,8 @@ const addOne = num => {
 };
 var two = addOne(1);
 console.log(two);
+
+Output: can't access lexical declaration `addOne' before initialization
 ```
 
 7. Make a Execution Context Diagram for the following JS and write the output.
@@ -77,12 +88,15 @@ const addOne = num => {
 };
 var two = addOne(1);
 console.log(two);
+
+Output: can't access lexical declaration `addOne' before initialization
 ```
 
 8. What will be the output of the following
 
 ```js
 function isAwesome() {
+  //undefined
   var awesome;
   if (false) {
     awesome = true;
@@ -90,12 +104,14 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+output: undefined;
 ```
 
 9. What will be the output of the following
 
 ```js
 function isAwesome() {
+  //undefined
   let awesome;
   if (true) {
     awesome = true;
@@ -103,6 +119,8 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+//Output
+output: true;
 ```
 
 10. What will be the output of the following
@@ -116,34 +134,42 @@ function isAwesome() {
   console.log(awesome);
 }
 isAwesome();
+//Output
+output: undefined;
 ```
 
 11. What will be the output of the following
 
 ```js
-let firstName = "Arya";
-const lastName = "Stark";
-var knownAs = "no one";
+let firstName = "Arya"; //undefined
+const lastName = "Stark"; //undefined
+var knownAs = "no one"; //undefined
 
 function fullName(a, b) {
+  //undefined
   return a + b;
 }
 const name = fullName(firstName, lastName);
 console.log(name);
+//Output
+output: AryaStark;
 ```
 
 12. What will be the output of the following
 
 ```js
-let firstName = "Arya";
-const lastName = "Stark";
-var knownAs = "no one";
+let firstName = "Arya"; //undefined
+const lastName = "Stark"; //undefined
+var knownAs = "no one"; //undefined
 
 function fullName(a, b) {
+  //undefined
   return a + b;
 }
 const name = fullName(firstName, lastName);
 console.log(name);
+//Output
+output: AryaStark;
 ```
 
 13. Guess the output of the code below with a reason.
@@ -155,6 +181,8 @@ function sayHello() {
 sayHello();
 
 console.log(name);
+//output
+output: <empty string>
 ```
 
 14. Guess the output of the code below with a reason.
@@ -164,6 +192,8 @@ if (true) {
   var name = "Arya Stark";
 }
 console.log(name);
+//output
+output: Arya Stark, after executing 'console.log(name);' name which is defined with 'var' keyword is available in the global memory
 ```
 
 15. Guess the output of the code below with a reason.
@@ -173,6 +203,8 @@ if (true) {
   let name = "Arya Stark";
 }
 console.log(name);
+//output
+output: Arya Stark, by default the condition will evaluate to true, hence the variable will be defined in global and 'console.log' can access it
 ```
 
 16. Guess the output of the code below with a reason.
@@ -182,6 +214,8 @@ for (var i = 0; i < 20; i++) {
   //
 }
 console.log(i);
+//output
+output: 20, variable defined with var can be accessed in the global scope
 ```
 
 17. Guess the output of the code below with a reason.
@@ -191,6 +225,8 @@ for (let i = 0; i < 20; i++) {
   //
 }
 console.log(i);
+
+output: undefined, variable defined with let can't be accessed in the global scope
 ```
 
 18. Guess the output of the code below with a reason.
@@ -200,6 +236,10 @@ for (var i = 0; i < 20; i++) {
   setTimeout(() => console.log(i, "first"), 100);
 }
 console.log(i, "second");
+output:
+'20 first' will be printed after 100ms
+'20 second' will be printed after 100ms
+
 ```
 
 19. Guess the output of the code below with a reason.
@@ -209,6 +249,29 @@ for (let i = 0; i < 20; i++) {
   setTimeout(() => console.log(i, "first"), 100);
 }
 console.log(i, "second");
+output:
+0 first
+1 first
+2 first
+3 first
+4 first
+5 first
+6 first
+7 first
+8 first
+9 first
+10 first
+11 first
+12 first
+13 first
+14 first
+15 first
+16 first
+17 first
+18 first
+19 first
+
+i is not defined for[console.log(i, "second");]. As it was defined with let keyword whose scope is limited to the for loop
 ```
 
 20. Guess the output and the reason behind that.
@@ -220,6 +283,10 @@ function sample() {
   }
   console.log(username);
 }
+output: undefined
+
+sample();
+output: John Snow
 ```
 
 21. Guess the output and the reason behind that.
@@ -231,6 +298,11 @@ function sample() {
   }
   console.log(username);
 }
+
+output: undefined
+
+sample();
+output: reference error
 ```
 
 22. Guess the output and the reason behind that.
@@ -244,6 +316,14 @@ function sample() {
   }
   console.log(username, "second");
 }
+
+output: undefined
+
+sample();
+output:
+John Snow
+John Snow second
+
 ```
 
 23. Guess the output and the reason behind that.
@@ -257,6 +337,11 @@ function sample() {
   }
   console.log(username, "second");
 }
+
+output: undefined;
+
+sample();
+output: undefined;
 ```
 
 24. Guess the output and the reason behind that.
@@ -270,6 +355,11 @@ function sample(...args) {
 }
 
 sample("First", "Second", "Third");
+
+output:
+Hello I am First
+Hello I am Second
+Hello I am Third
 ```
 
 25. Guess the output and the reason behind that.
@@ -283,6 +373,11 @@ function sample(...args) {
 }
 
 sample("First", "Second", "Third");
+
+output:
+Hello I am First
+Hello I am Second
+Hello I am Third
 ```
 
 26. Guess the output and the reason behind that.
@@ -296,6 +391,10 @@ if (true) {
   let username = "Hello World!";
   myFunc();
 }
+
+Output:
+can't access lexical declaration `username' before initialization
+
 ```
 
 27. Guess the output and the reason behind that.
@@ -310,6 +409,11 @@ function outer() {
 }
 
 outer();
+
+output:
+"I love this movie called ${movie.toUpperCase()}"
+${movie.toUpperCase() is printed as is because the string uses "" not ``. If `` were used:
+output would have been 'I love this movie called MAD MAX FURY ROAD'
 ```
 
 28. Guess the output and the reason behind that.
@@ -325,6 +429,9 @@ function outer() {
 }
 
 outer();
+output: I love this movie called ${movie.toUpperCase()}.
+${movie.toUpperCase() is printed as is because the string uses "" not ``. If `` were used:
+output would have been 'I love this movie called BEFORE SUNRISE'
 ```
 
 29. Guess the output and the reason behind that.
@@ -344,6 +451,10 @@ function outer() {
 }
 
 outer();
+
+output: I love this movie called ${movie.toUpperCase()}
+${movie.toUpperCase() is printed as is because the string uses "" not ``. If `` were used:
+output would have been 'I love this movie called GONE GIRL'
 ```
 
 30. Execute all the functions inside `allFunctions` variable using any loop. (Hint: use for of loop functions are object)
@@ -356,13 +467,18 @@ const sub = (a, b) => {
   return a - b;
 };
 const multiply = (a, b) => {
-  return a + b;
+  return a * b;
 };
 const divide = (a, b) => {
   return a / b;
 };
 
 let allFunctions = [add, sub, multiply, divide];
+
+//Answer
+for (operands of allFunctions) {
+  console.log(operands(10, 5));
+}
 ```
 
 31. You have to pass 10 and 12 as initial value and find the final output when you pass the return value of one function as an input to the next function in the array `allFunctions`.
@@ -375,11 +491,19 @@ const sub = (a, b) => {
   return a - b;
 };
 const multiply = (a, b) => {
-  return a + b;
+  return a * b;
 };
 const divide = (a, b) => {
   return a / b;
 };
 
 let allFunctions = [add, add, add, add, add, sub, sub, multiply, divide];
+
+//Answer
+
+let a = 12,
+    b = 10;
+for (operands of allFunctions) {
+  console.log(operands(a, b));
+}
 ```
